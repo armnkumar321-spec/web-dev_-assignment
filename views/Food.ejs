@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+            margin:20px;
+        }
+
+        h1{
+            text-align:center;
+        }
+
+        form{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        table{
+            width:90%;
+            margin:auto;
+            border-collapse:collapse;
+            background:white;
+        }
+
+        th,td{
+            border:1px solid black;
+            padding:10px;
+            text-align:center;
+        }
+
+        th{
+            background:#333;
+            color:white;
+        }
+
+        a{
+            text-decoration:none;
+            color:blue;
+        }
+
+        .back{
+            text-align:center;
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Restaurant Menu</h1>
+
+<form action="/sort" method="GET">
+    <select name="order">
+        <option value="asc">Price Low to High</option>
+        <option value="desc">Price High to Low</option>
+    </select>
+
+    <button type="submit">Sort</button>
+</form>
+
+<table>
+
+<tr>
+    <th>Food Name</th>
+    <th>Category</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Rating</th>
+</tr>
+
+<% allMenu.forEach((element)=>{ %>
+
+<tr>
+
+    <td><%= element.foodName %></td>
+
+    <td><%= element.category %></td>
+
+    <td>₹ <%= element.price %></td>
+
+    <td><%= element.quantity %></td>
+
+    <td><%= element.rating %></td>
+
+</tr>
+
+<% }) %>
+
+</table>
+
+<div class="back">
+    <br>
+    <a href="/">⬅ Back Home</a>
+</div>
+
+</body>
+</html>
